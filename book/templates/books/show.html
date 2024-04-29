@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <h1>BOOK LIST</h1>
+    <p>{{ book.name }}</p>
+    <p>{{ book.kind }}</p>
+    <p>{{ book.note }}</p>
+    <a href="{% url 'books:edit' book.id %}">編輯</a>
+
+    <form action="{% url 'books:delete' book.id %}" method="post">
+        {% csrf_token %}
+        <button>刪除</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <h1>BOOK UPDATE</h1>
+
+    <form action="{% url 'books:show' book.id %}" method="post">
+        {% csrf_token %}
+        <div class="item">
+            <label for="name">書名</label>
+            <input type="text" id="name" name="name" value="{{ book.name }}">
+        </div>
+        <div class="item">
+            <label for="kind">分類</label>
+            <input type="text" id="kind" name="kind" value="{{ book.kind }}">
+        </div>
+        <div class="item">
+            <label for="note">說明</label>
+            <input type="text" id="note" name="note" value="{{ book.note }}">
+        </div>
+        <input type="submit" value="更新">
+    </form>
+{% endblock %}
