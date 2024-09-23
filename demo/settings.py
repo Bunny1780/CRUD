@@ -25,7 +25,16 @@ SECRET_KEY = 'django-insecure-mqh)g$3_q4#-f+xyp+(q3-cif&99f8%z=1f9$gwuu+s26gp&sk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*',
+    'crud-server-122373738716.asia-east1.run.app',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'https://crud-server-122373738716.asia-east1.run.app',
+]
+
+ROOT_URLCONF = 'crud-server-122373738716.asia-east1.run.app'
 
 
 # Application definition
