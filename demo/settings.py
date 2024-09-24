@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,16 @@ SECRET_KEY = 'django-insecure-mqh)g$3_q4#-f+xyp+(q3-cif&99f8%z=1f9$gwuu+s26gp&sk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*',
+    'crud-server-122373738716.asia-east1.run.app',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'https://crud-server-122373738716.asia-east1.run.app',
+]
+
+ROOT_URLCONF = 'crud-server-122373738716.asia-east1.run.app'
 
 
 # Application definition
@@ -74,12 +83,42 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": os.getenv("DB_ENGINE"),
+#         "NAME": os.getenv("DB_NAME"),
+#         "USER": os.getenv("DB_USER"),
+#         "PASSWORD": os.getenv("DB_PASSWORD"),
+#         "HOST": os.getenv("DB_HOST"),
+#         "PORT": os.getenv("DB_PORT"),
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "test_db",
+        "USER": "root",
+        "PASSWORD": "Kb9sx3~2NyY5S<6f",
+        "HOST": "34.80.255.181",
+        "PORT": "3306",
     }
 }
+
+# # MySQL
+# DB_ENGINE=django.db.backends.mysql
+# DB_NAME=cloud-sql
+# DB_USER=root
+# DB_PASSWORD=Kb9sx3~2NyY5S<6f
+# DB_HOST=218.35.7.14
+# DB_PORT=3306
+
+print(DATABASES)
 
 
 # Password validation
